@@ -59,28 +59,22 @@ document.addEventListener('click', function (event) {
         } else if (currentStatus === "rejected") {
            updateCounts(0, 0, -1, 0);
         }
-        card.remove();
+        card.remove();   
+        filterJobs(currentStatus, null); 
+       
     }
 });
-
-
 function filterJobs(status, btn) {
     const allCards = document.querySelectorAll('.job-card');
     const noJobMessage = document.getElementById('job'); 
-    const magicEl = document.getElementById('job-delete-8'); 
-
-    
+    const magicEl = document.getElementById('job-delete-8');     
     const allButtons = document.querySelectorAll('.filter-btn');
     allButtons.forEach(b => {
         b.classList.remove('bg-blue-600', 'bg-green-600', 'bg-red-600', 'text-white', 'shadow-md');
         b.classList.add('bg-gray-100', 'text-gray-700');
-    });
-
-    
+    });    
     if (btn) {
-        btn.classList.remove('bg-gray-100', 'text-gray-700');
-
-       
+        btn.classList.remove('bg-gray-100', 'text-gray-700');       
              if (status === 'interview') {
                   btn.classList.add('bg-green-600', 'text-white', 'shadow-md'); 
                      } else if (status === 'rejected') {
