@@ -62,3 +62,52 @@ document.addEventListener('click', function (event) {
         card.remove();
     }
 });
+
+
+function filterJobs(status, btn) {
+    const allCards = document.querySelectorAll('.job-card');
+    const noJobMessage = document.getElementById('job'); 
+    const magicEl = document.getElementById('job-delete-8'); 
+
+    
+    const allButtons = document.querySelectorAll('.filter-btn');
+    allButtons.forEach(b => {
+        b.classList.remove('bg-blue-600', 'bg-green-600', 'bg-red-600', 'text-white', 'shadow-md');
+        b.classList.add('bg-gray-100', 'text-gray-700');
+    });
+
+    
+    if (btn) {
+        btn.classList.remove('bg-gray-100', 'text-gray-700');
+
+       
+             if (status === 'interview') {
+                  btn.classList.add('bg-green-600', 'text-white', 'shadow-md'); 
+                     } else if (status === 'rejected') {
+              btn.classList.add('bg-red-600', 'text-white', 'shadow-md');
+              } else {
+                btn.classList.add('bg-blue-600', 'text-white', 'shadow-md'); 
+              }
+        }      
+       let visibleCount = 0;
+    
+    allCards.forEach(card => {
+        const cardStatus = card.dataset.status || "none";
+        
+        if (status === 'all' || cardStatus === status) {
+            card.classList.remove('hidden');
+            visibleCount++;
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    if (magicEl) magicEl.innerText = visibleCount;   
+    if (visibleCount === 0) {
+        noJobMessage.classList.remove('hidden');
+        noJobMessage.classList.add('flex'); 
+    } else {
+        noJobMessage.classList.add('hidden');
+        noJobMessage.classList.remove('flex');
+    }
+}
