@@ -64,8 +64,25 @@
     </div>
 </heading>
   
+<!--main section-->
+<main class="max-w-6xl mx-auto px-6 mt-10 lg:px-2 sm:px-10 ">
+ 
+<div class=" flex justify-between items-center max-w-6xl mx-auto mb-6 ">
+        <p class="text-black font-semibold text-xl">Available Jobs</p>
+        <p id="magic " class="font-medium text-base text-gray-400"><span id="job-delete-8"> 8 </span> jobs</p>
+     </div>
 
-
+<div class="flex gap-4 mb-6 max-w-6xl mx-auto">
+    <button onclick="filterJobs('all' , this)"  class="bg-blue-600 filter-btn  text-white px-3 py-2 w-20 h-8  rounded font-semibold text-xs">
+        All
+    </button>
+    <button onclick="filterJobs('interview' , this)"  class="filter-btn bg-gray-200 text-gray-600 px-3 py-2 rounded w-20 h-8 font-medium text-xs border border-transparent ">
+        Interview
+    </button>
+    <button  onclick="filterJobs('rejected' , this)" class="filter-btn bg-gray-200 text-gray-600 px-3 py-2 rounded w-20 h-8 font-medium text-xs border border-transparent ">
+        Rejected
+    </button>
+</div>
 
 
 
